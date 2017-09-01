@@ -23,7 +23,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/topLeft"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="tl"/>
 
         <Button
             android:layout_width="0dp"
@@ -31,7 +33,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/topMid"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="tm"/>
 
         <Button
             android:layout_width="0dp"
@@ -39,7 +43,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/topRight"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="tr"/>
 
     </LinearLayout>
 
@@ -57,7 +63,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/midLeft"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="ml"/>
 
         <Button
             android:layout_width="0dp"
@@ -65,7 +73,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/mid"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="m"/>
 
         <Button
             android:layout_width="0dp"
@@ -73,7 +83,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/midRight"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="mr"/>
 
     </LinearLayout>
 
@@ -91,7 +103,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/botLeft"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="bl"/>
 
         <Button
             android:layout_width="0dp"
@@ -99,7 +113,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/botMid"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="bm"/>
 
         <Button
             android:layout_width="0dp"
@@ -107,7 +123,9 @@
             android:layout_weight="1"
             android:textSize="40dp"
             android:id="@+id/botRight"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="playerMove"
+            android:tag="br"/>
 
     </LinearLayout>
 

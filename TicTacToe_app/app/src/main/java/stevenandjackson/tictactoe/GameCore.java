@@ -1,15 +1,23 @@
 package stevenandjackson.tictactoe;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class GameCore {
+public class GameCore extends AppCompatActivity {
 
     /**
      *  Simple struct encapsulates x & y of a spot
      */
 
     Scanner reader = new Scanner(System.in);  // Creating a scanner that reads user input
+    //boolean isPlayerDone = false;
+    //Thread t = new Thread();
+
 
     int[][] board;
     int gameStatus;
@@ -37,13 +45,9 @@ public class GameCore {
      */
     public void MainProcedure(){
 
-        GameCore.printBoard(this.board); //TODO remove for app
+        if(!GameCore.isFull(this.board) && this.gameStatus == GameCore.IN_PROCESS ){
 
-        while (!GameCore.isFull(this.board) && this.gameStatus == GameCore.IN_PROCESS ){
-
-            // Player plays
-            this.readPlayerInput();
-            this.gameStatus = GameCore.inspectGameStatus(this.board);
+            gameStatus = GameCore.inspectGameStatus(this.board);
 
             if (gameStatus == GameCore.IN_PROCESS){
                 this.IntelligentAIMoves();
@@ -51,20 +55,7 @@ public class GameCore {
             // Check if the game if finished
             this.gameStatus = GameCore.inspectGameStatus(this.board);
 
-            GameCore.printBoard(this.board);
         }
-
-        if (this.gameStatus == GameCore.AI_WON){
-            System.out.println("ai won");
-        } else if (this.gameStatus == GameCore.PLAYER_WON){
-            System.out.println("player won");
-        } else if (this.gameStatus == GameCore.DRAW){
-            System.out.println("draw");
-
-        } else {
-            System.out.println("something wrong");
-        }
-
 
     }
 
@@ -88,6 +79,7 @@ public class GameCore {
                     System.out.print("O");
                 } else {
                     // thorw some kinda error
+                    // thats very descriptive Steven
                 }
 
                 if (j == 0 || j == 1){
@@ -211,7 +203,7 @@ public class GameCore {
 
 
     /**
-     *
+     * For use in terminal -- left in for reference
      */
     public void readPlayerInput(){
 
@@ -239,6 +231,26 @@ public class GameCore {
             } else {}
         }
     }
+
+//    /**
+//     * <p> Android app version of readPlayerInput</p>
+//     * Waits until player taps a button on screen and relays press GameCore after which
+//     * the variable is reset.
+//     */
+//    public void waitForPlayer(){
+//        synchronized (t) {
+//            Log.i("TESTING WFP", "About to start wait");
+//            while (!isPlayerDone) {
+//                try {
+//                    t.wait();
+//                } catch (InterruptedException ex) {
+//                    Log.e("TESTING WFP", "Interrupted... IDK why");
+//                }
+//            }
+//            Log.i("TESTING WFP", "Player Done Moving");
+//            isPlayerDone = false;
+//        }
+//    }
 
 
     public void IntelligentAIMoves(){
@@ -303,7 +315,7 @@ public class GameCore {
                         newViableSpot = new Spot(j, i, level - 10);
                     } else {}
 
-                    //					System.out.println("putting in... " +newViableSpot.x+", "+newViableSpot.y+", "+newViableSpot.rating);
+                    //	System.out.println("putting in... " +newViableSpot.x+", "+newViableSpot.y+", "+newViableSpot.rating);
 
                     viableSpots.add(newViableSpot);
                 } else {}
@@ -360,15 +372,10 @@ public class GameCore {
     }
 
 
-
-
-
-
-
     public static void main(String[] args ){
         int[][] ye = {{1,1,2},
-                {2,2,1},
-                {1,2,2}
+                    {2,2,1},
+                    {1,2,2}
         };
 
         GameCore.printBoard(ye);
